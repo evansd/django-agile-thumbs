@@ -5,4 +5,4 @@ register = template.Library()
 
 @register.simple_tag
 def image_url(image, style='default'):
-	return get_image_url(image, style)
+    return get_image_url(image, style)

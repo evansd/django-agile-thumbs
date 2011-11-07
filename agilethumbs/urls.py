@@ -12,7 +12,7 @@ regices = dict(
 
 urlpatterns = patterns('',
     url(r'^%(file_id)s-%(style)s-%(version)s-%(signature)s\.%(extension)s$' %
-	    regices,
+            regices,
         'agilethumbs.views.agilethumbs_image',
         name='agilethumbs_image'),
 )
