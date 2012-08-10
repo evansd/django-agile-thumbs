@@ -34,6 +34,9 @@ def simple_resize(
         tmp = Image.new('RGBA', (width, height), color_from_string(background))
         tmp.paste(im, ((width - im.size[0]) // 2, (height - im.size[1]) // 2))
         im = tmp
+    # Scale image to exact dimensions ignoring aspect ratio
+    elif resize == 'squash':
+        im = im.resize((width, height), Image.ANTIALIAS)
     else:
         raise ImageProcessorError('Unknwon resize option: %s' % resize)
     # Convert `extension` argument into something PIL is happy with

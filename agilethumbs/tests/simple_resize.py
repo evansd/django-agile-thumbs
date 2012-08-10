@@ -53,6 +53,10 @@ class TestSimpleResizeIM(TestCase):
     def testFill(self):
         outfile = self.doResize('jpg', resize='fill', width=30, height=30)
         self.assertImageSize(outfile, (30, 30))
+
+    def testSquash(self):
+        outfile = self.doResize('jpg', resize='squash', width=30, height=30)
+        self.assertImageSize(outfile, (30, 30))
     
     # TODO: Test "pad" resize method (use ImageMagick compare script)
         

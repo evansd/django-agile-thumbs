@@ -33,6 +33,11 @@ def simple_resize(infile, outfile, extension,
             '-gravity', 'center',
             '-extent',  '%sx%s' % (width, height)
         ])
+    # Scale image to exact dimensions ignoring aspect ratio
+    elif resize == 'squash':
+        args.extend([
+            '-thumbnail', '%sx%s!' % (width, height)
+        ])
     else:
         raise ImageProcessorError('Unknwon resize option: %s' % resize)
     args.extend([
