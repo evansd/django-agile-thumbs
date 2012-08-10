@@ -73,7 +73,8 @@ def string_arg_from_file(fileobj):
     # in some cases.
     try:
         name = fileobj.name
+        ext = os.path.splitext(name)[1].lstrip('.')
     except AttributeError:
-        return '-'
-    return os.path.splitext(name)[1].lstrip('.') + ':-'
+        ext = ''
+    return  (ext + ':-') if ext != '' else '-'
 
